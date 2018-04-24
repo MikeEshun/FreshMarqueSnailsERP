@@ -82,6 +82,16 @@ namespace FreshMarqueSnailsERP.Controllers
                 throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
+            var username = user.UserName;
+            if (model.Username != username)
+            {
+                var setUsernameResult = await _userManager.SetUserNameAsync(user, model.Username);
+                if (!setUsernameResult.Succeeded)
+                {
+                    throw new ApplicationException($"Unexpected error occurred setting username for user with ID '{user.Id}'.");
+                }
+            }
+
             var email = user.Email;
             if (model.Email != email)
             {

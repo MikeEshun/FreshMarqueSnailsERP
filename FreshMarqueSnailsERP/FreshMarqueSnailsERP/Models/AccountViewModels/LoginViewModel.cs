@@ -8,6 +8,9 @@ namespace FreshMarqueSnailsERP.Models.AccountViewModels
 {
     public class LoginViewModel
     {
+        
+        public string Username { get; set; }
+
         [Required]
         [EmailAddress]
         public string Email { get; set; }
