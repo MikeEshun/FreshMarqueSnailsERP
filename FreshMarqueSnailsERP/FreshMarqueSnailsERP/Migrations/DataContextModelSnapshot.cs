@@ -22,7 +22,7 @@ namespace FreshMarqueSnailsERP.Migrations
 
             modelBuilder.Entity("FreshMarqueSnailsERP.Models.DispatchRider", b =>
                 {
-                    b.Property<int>("DispatchRiderId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Company")
@@ -33,23 +33,23 @@ namespace FreshMarqueSnailsERP.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.Property<int>("OrderId");
-
                     b.Property<string>("Supervisor")
                         .IsRequired();
 
-                    b.HasKey("DispatchRiderId");
+                    b.HasKey("Id");
 
                     b.ToTable("DispatchRiders");
                 });
 
             modelBuilder.Entity("FreshMarqueSnailsERP.Models.Order", b =>
                 {
-                    b.Property<int>("OrderId");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Comment");
 
-                    b.Property<int>("Contact");
+                    b.Property<string>("Contact")
+                        .IsRequired();
 
                     b.Property<decimal>("Cost");
 
@@ -83,14 +83,14 @@ namespace FreshMarqueSnailsERP.Migrations
 
                     b.Property<int>("PaymentMethod");
 
-                    b.HasKey("OrderId");
+                    b.HasKey("Id");
 
                     b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("FreshMarqueSnailsERP.Models.Retailer", b =>
                 {
-                    b.Property<int>("RetailerId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("Contact");
@@ -104,14 +104,15 @@ namespace FreshMarqueSnailsERP.Migrations
                     b.Property<string>("Type")
                         .IsRequired();
 
-                    b.HasKey("RetailerId");
+                    b.HasKey("Id");
 
                     b.ToTable("Retailers");
                 });
 
             modelBuilder.Entity("FreshMarqueSnailsERP.Models.RetailSupply", b =>
                 {
-                    b.Property<int>("RetailSupplyId");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Comment");
 
@@ -129,18 +130,16 @@ namespace FreshMarqueSnailsERP.Migrations
 
                     b.Property<int>("MediumSizeQuantity");
 
-                    b.Property<int>("RetailerId");
-
                     b.Property<DateTime>("SupplyDate");
 
-                    b.HasKey("RetailSupplyId");
+                    b.HasKey("Id");
 
                     b.ToTable("RetailSupplies");
                 });
 
             modelBuilder.Entity("FreshMarqueSnailsERP.Models.SnailPurchase", b =>
                 {
-                    b.Property<int>("SnailPurchaseId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Comment");
@@ -149,16 +148,14 @@ namespace FreshMarqueSnailsERP.Migrations
 
                     b.Property<DateTime>("PurchaseDate");
 
-                    b.Property<int>("SupplierId");
-
-                    b.HasKey("SnailPurchaseId");
+                    b.HasKey("Id");
 
                     b.ToTable("SnailPurchases");
                 });
 
             modelBuilder.Entity("FreshMarqueSnailsERP.Models.SnailSpecification", b =>
                 {
-                    b.Property<int>("SnailSpecificationId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Description")
@@ -169,30 +166,30 @@ namespace FreshMarqueSnailsERP.Migrations
                     b.Property<string>("Size")
                         .IsRequired();
 
-                    b.Property<int>("SnailTypeId");
-
                     b.Property<decimal>("Width");
 
-                    b.HasKey("SnailSpecificationId");
+                    b.HasKey("Id");
 
                     b.ToTable("SnailSpecifications");
                 });
 
             modelBuilder.Entity("FreshMarqueSnailsERP.Models.SnailType", b =>
                 {
-                    b.Property<int>("SnailTypeId");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Type")
                         .IsRequired();
 
-                    b.HasKey("SnailTypeId");
+                    b.HasKey("Id");
 
                     b.ToTable("SnailTypes");
                 });
 
             modelBuilder.Entity("FreshMarqueSnailsERP.Models.Supplier", b =>
                 {
-                    b.Property<int>("SupplierId");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<int>("Contact");
 
@@ -207,41 +204,9 @@ namespace FreshMarqueSnailsERP.Migrations
                     b.Property<string>("Reliability")
                         .IsRequired();
 
-                    b.HasKey("SupplierId");
+                    b.HasKey("Id");
 
                     b.ToTable("Suppliers");
-                });
-
-            modelBuilder.Entity("FreshMarqueSnailsERP.Models.Order", b =>
-                {
-                    b.HasOne("FreshMarqueSnailsERP.Models.DispatchRider", "DispatchRider")
-                        .WithMany("Orders")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("FreshMarqueSnailsERP.Models.RetailSupply", b =>
-                {
-                    b.HasOne("FreshMarqueSnailsERP.Models.Retailer", "Retailer")
-                        .WithMany("RetailSupplies")
-                        .HasForeignKey("RetailSupplyId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("FreshMarqueSnailsERP.Models.SnailType", b =>
-                {
-                    b.HasOne("FreshMarqueSnailsERP.Models.SnailSpecification", "SnailSpecification")
-                        .WithOne("SnailType")
-                        .HasForeignKey("FreshMarqueSnailsERP.Models.SnailType", "SnailTypeId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("FreshMarqueSnailsERP.Models.Supplier", b =>
-                {
-                    b.HasOne("FreshMarqueSnailsERP.Models.SnailPurchase", "SnailSale")
-                        .WithOne("Supplier")
-                        .HasForeignKey("FreshMarqueSnailsERP.Models.Supplier", "SupplierId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

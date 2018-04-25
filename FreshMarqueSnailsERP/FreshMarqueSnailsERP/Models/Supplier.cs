@@ -5,7 +5,7 @@ namespace FreshMarqueSnailsERP.Models
 {
     public class Supplier
     {
-        public int SupplierId { get; set; }  
+        public int Id { get; set; }  
 
         [Required]
         public string Name { get; set; }
@@ -20,7 +20,7 @@ namespace FreshMarqueSnailsERP.Models
         [Display(Name = "Supplier Reliability")]
         public string Reliability { get; set; }
 
-        public SnailPurchase SnailSale { get; set; }
+        //public SnailPurchase SnailSale { get; set; }
 
         [Display(Name = "Recent Supply")]
         public DateTime LastSupply { get; set; } // references purchase_date in purchases table

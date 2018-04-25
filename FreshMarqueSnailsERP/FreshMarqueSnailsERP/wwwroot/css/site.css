@@ -21,6 +21,10 @@
     background-color: rgb(83, 42, 69) !important;
 }
 
+#body-margin-bottom {
+    margin-bottom: 70px;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
    

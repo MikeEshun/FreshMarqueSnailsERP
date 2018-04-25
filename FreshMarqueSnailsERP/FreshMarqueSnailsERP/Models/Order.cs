@@ -5,7 +5,7 @@ namespace FreshMarqueSnailsERP.Models
 {
     public class Order
     {
-        public int OrderId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
@@ -14,16 +14,16 @@ namespace FreshMarqueSnailsERP.Models
 
         [Required]
         [StringLength(50, MinimumLength = 2)]
-        [Display(Name = "Customer Name")]
+        [Display(Name = "Customer")]
         public string CustomerName { get; set; } // refactor this to be a foreign key for customers table
 
         [Required]
-        [Display(Name = "Phone No.")]
-        public int Contact { get; set; }
+        [Display(Name = "Contact")]
+        public string Contact { get; set; }
 
         [Required]
         [StringLength(50, MinimumLength = 2)]
-        [Display(Name = "Delivery Location")]
+        [Display(Name = "Location")]
         public string Location { get; set; }
 
         [Required]
@@ -70,8 +70,8 @@ namespace FreshMarqueSnailsERP.Models
 
         public string Comment { get; set; }
 
-        [Display(Name = "Delivered By")]
-        public DispatchRider DispatchRider { get; set; }  // foreieng key for dispatch riders table. references the id column in dispatch rider table
+        //[Display(Name = "Delivered By")]
+        //public DispatchRider DispatchRider { get; set; }  // foreieng key for dispatch riders table. references the id column in dispatch rider table
 
         [Display(Name = "Payment Mode")]
         public int PaymentMethod { get; set; }  // foreign key for payment table

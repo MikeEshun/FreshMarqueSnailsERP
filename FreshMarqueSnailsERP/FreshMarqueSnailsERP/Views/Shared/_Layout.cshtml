@@ -34,13 +34,17 @@
                 </li>
                 <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                 <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a></li>
+                <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Retailers" asp-action="Index">Retailers</a></li>
+                <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Suppliers" asp-action="Index">Suppliers</a></li>
+                <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="DispatchRiders" asp-action="Index">Dispatch</a></li>
             </ul>
             @await Html.PartialAsync("_LoginPartial")
         </div>
     </div>
 </nav>
 
-<div class="container body-content">
+<div class="container body-content" id="body-margin-bottom">
     @RenderBody()
     <nav class="navbar navbar-expand navbar-dark bg-dark fixed-bottom text-white navbar-color">
         <div class="container">

@@ -5,7 +5,7 @@ namespace FreshMarqueSnailsERP.Models
 {
     public class DispatchRider
     {
-        public int DispatchRiderId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -20,9 +20,9 @@ namespace FreshMarqueSnailsERP.Models
         [Display(Name = "Manager")]
         public string Supervisor { get; set; }
 
-        [Display(Name = "Recent Delivery")]
-        public int OrderId { get; set; }  // references the delivery date in orders table
+        //[Display(Name = "Recent Delivery")]
+        //public int OrderId { get; set; }  // references the delivery date in orders table
 
-        public List<Order> Orders { get; set; }
+        //public List<Order> Orders { get; set; }
     }
 }

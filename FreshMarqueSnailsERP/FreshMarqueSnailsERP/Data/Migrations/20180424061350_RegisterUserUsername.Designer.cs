@@ -23,7 +23,7 @@ namespace FreshMarqueSnailsERP.Data.Migrations
 
             modelBuilder.Entity("FreshMarqueSnailsERP.Models.ApplicationUser", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("OrderDate")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("AccessFailedCount");
@@ -59,7 +59,7 @@ namespace FreshMarqueSnailsERP.Data.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
 
-                    b.HasKey("Id");
+                    b.HasKey("OrderDate");
 
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
@@ -74,7 +74,7 @@ namespace FreshMarqueSnailsERP.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("OrderDate")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("ConcurrencyStamp")
@@ -86,7 +86,7 @@ namespace FreshMarqueSnailsERP.Data.Migrations
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(256);
 
-                    b.HasKey("Id");
+                    b.HasKey("OrderDate");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
@@ -98,7 +98,7 @@ namespace FreshMarqueSnailsERP.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OrderDate")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("ClaimType");
@@ -108,7 +108,7 @@ namespace FreshMarqueSnailsERP.Data.Migrations
                     b.Property<string>("RoleId")
                         .IsRequired();
 
-                    b.HasKey("Id");
+                    b.HasKey("OrderDate");
 
                     b.HasIndex("RoleId");
 
@@ -117,7 +117,7 @@ namespace FreshMarqueSnailsERP.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OrderDate")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("ClaimType");
@@ -127,7 +127,7 @@ namespace FreshMarqueSnailsERP.Data.Migrations
                     b.Property<string>("UserId")
                         .IsRequired();
 
-                    b.HasKey("Id");
+                    b.HasKey("OrderDate");
 
                     b.HasIndex("UserId");
 

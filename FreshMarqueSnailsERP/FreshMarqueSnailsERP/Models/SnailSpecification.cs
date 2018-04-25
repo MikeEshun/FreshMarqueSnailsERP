@@ -4,7 +4,7 @@ namespace FreshMarqueSnailsERP.Models
 {
     public class SnailSpecification
     {
-        public int SnailSpecificationId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string Size { get; set; }
@@ -18,9 +18,9 @@ namespace FreshMarqueSnailsERP.Models
         [Required]
         public string Description { get; set; }
 
-        public int SnailTypeId { get; set; }
+        //public int SnailTypeId { get; set; }
 
-        [Display(Name = "Snail Type")]
-        public SnailType SnailType { get; set; } // references id column of snail type table
+        //[Display(Name = "Snail Type")]
+        //public SnailType SnailType { get; set; } // references id column of snail type table
     }
 }

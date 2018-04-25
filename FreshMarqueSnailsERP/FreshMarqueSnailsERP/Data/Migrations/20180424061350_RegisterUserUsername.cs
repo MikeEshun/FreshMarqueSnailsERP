@@ -39,7 +39,7 @@ namespace FreshMarqueSnailsERP.Data.Migrations
                 table: "AspNetUserTokens",
                 column: "UserId",
                 principalTable: "AspNetUsers",
-                principalColumn: "Id",
+                principalColumn: "OrderDate",
                 onDelete: ReferentialAction.Cascade);
         }
 

@@ -22,25 +22,49 @@ namespace FreshMarqueSnailsERP.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<DispatchRider>()
-                .HasMany(o => o.Orders)
-                .WithOne(d => d.DispatchRider)
-                .HasForeignKey(d => d.OrderId);
+            //modelBuilder.Entity<Order>()
+            //    .HasKey(o => o.Id);
 
-            modelBuilder.Entity<SnailPurchase>()
-                .HasOne(s => s.Supplier)
-                .WithOne(snailPurchase => snailPurchase.SnailSale)
-                .HasForeignKey<Supplier>(snailPurchase => snailPurchase.SupplierId);
+            //modelBuilder.Entity<DispatchRider>()
+            //    .HasKey(d => d.Id);
 
-            modelBuilder.Entity<RetailSupply>()
-                .HasOne(rs => rs.Retailer)
-                .WithMany(r => r.RetailSupplies)
-                .HasForeignKey(retailSupply => retailSupply.RetailSupplyId);
+            //modelBuilder.Entity<SnailPurchase>()
+            //    .HasKey(sp => sp.Id);
 
-            modelBuilder.Entity<SnailSpecification>()
-                .HasOne(st => st.SnailType)
-                .WithOne(b => b.SnailSpecification)
-                .HasForeignKey<SnailType>(st => st.SnailTypeId);
+            //modelBuilder.Entity<Retailer>()
+            //    .HasKey(r => r.Id);
+
+            //modelBuilder.Entity<RetailSupply>()
+            //    .HasKey(rs => rs.Id);
+
+            //modelBuilder.Entity<SnailSpecification>()
+            //    .HasKey(ss => ss.Id);
+
+            //modelBuilder.Entity<SnailType>()
+            //    .HasKey(st => st.Id);
+
+            //modelBuilder.Entity<Supplier>()
+            //    .HasKey(s => s.Id);
+
+            //modelBuilder.Entity<DispatchRider>()
+            //    .HasMany(o => o.Orders)
+            //    .WithOne(d => d.DispatchRider)
+            //    .HasForeignKey(d => d.Id);
+
+            //modelBuilder.Entity<SnailPurchase>()
+            //    .HasOne(s => s.Supplier)
+            //    .WithOne(snailPurchase => snailPurchase.SnailSale)
+            //    .HasForeignKey<Supplier>(snailPurchase => snailPurchase.Id);
+
+            //modelBuilder.Entity<RetailSupply>()
+            //    .HasOne(rs => rs.Retailer)
+            //    .WithMany(r => r.RetailSupplies)
+            //    .HasForeignKey(retailSupply => retailSupply.Id);
+
+            //modelBuilder.Entity<SnailSpecification>()
+            //    .HasOne(st => st.SnailType)
+            //    .WithOne(b => b.SnailSpecification)
+            //    .HasForeignKey<SnailType>(st => st.Id);
 
         }
     }

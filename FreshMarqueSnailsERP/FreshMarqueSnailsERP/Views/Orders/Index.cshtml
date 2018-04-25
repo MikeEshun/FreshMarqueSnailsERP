@@ -1,0 +1,195 @@
+﻿@model IEnumerable<FreshMarqueSnailsERP.Models.Order>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="mb-3">
+    <a asp-action="Create" class="btn bg-dark text-white float-right" id="create" onClick="create()">Create New</a>
+    @*<button data-toggle="modal" data-target="#exampleModal">Test</button>*@
+    <h2>Index</h2>
+</div>
+
+<table class="table table-hover table-responsive table-borderless">
+    <caption>List of orders</caption>
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.LargeSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LargeSizeQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MediumSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MediumSizeQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JumboSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JumboSizeQuantity)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeliveryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeliveryStatus)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentMethod)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.LargeSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LargeSizeQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MediumSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MediumSizeQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JumboSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JumboSizeQuantity)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryStatus)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentMethod)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Update</a> |
+
+                @* Details Button *@
+                <a data-toggle="modal" data-target="#exampleModal-@item.Id" class="btn btn-sm btn-info">Details</a> |
+
+                @*Details Modal*@
+                <div class="modal fade" id="exampleModal-@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.OrderDate)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.CustomerName)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.Contact)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.Location)</div>
+
+                                    <div class="w-100 d-none d-md-block"></div>
+
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.OrderDate)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.CustomerName)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.Contact)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.Location)</div>
+
+                                    <div class="w-100 d-none d-md-block mb-3"></div>
+
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.LargeSize)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.LargeSizeQuantity)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.MediumSize)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.MediumSizeQuantity)</div>
+
+                                    <div class="w-100 d-none d-md-block"></div>
+
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.LargeSize)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.LargeSizeQuantity)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.MediumSize)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.MediumSizeQuantity)</div>
+
+                                    <div class="w-100 d-none d-md-block mb-3"></div>
+
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.JumboSize)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.Cost)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.DeliveryStatus)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.Comment)</div>
+
+                                    <div class="w-100 d-none d-md-block"></div>
+
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.JumboSizeQuantity)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.Cost)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.DeliveryStatus)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.Comment)</div>
+
+                                    <div class="w-100 d-none d-md-block mb-3"></div>
+
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.PaymentMethod)</div>
+
+                                    <div class="w-100 d-none d-md-block"></div>
+
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.PaymentMethod)</div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

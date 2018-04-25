@@ -5,7 +5,7 @@ namespace FreshMarqueSnailsERP.Models
 {
     public class RetailSupply
     {
-        public int RetailSupplyId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [Display(Name = "Supply Date")]
@@ -45,9 +45,9 @@ namespace FreshMarqueSnailsERP.Models
 
         public string Comment { get; set; }
 
-        public int RetailerId { get; set; }
+        //public int RetailerId { get; set; }
 
-        [Display(Name = "Retailer")]
-        public Retailer Retailer { get; set; } // references id column in retialer table
+        //[Display(Name = "Retailer")]
+        //public Retailer Retailer { get; set; } // references id column in retialer table
     }
 }

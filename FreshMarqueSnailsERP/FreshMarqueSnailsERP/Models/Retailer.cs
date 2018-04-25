@@ -5,7 +5,7 @@ namespace FreshMarqueSnailsERP.Models
 {
     public class Retailer
     {
-        public int RetailerId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [Display(Name = "Retailer")]
@@ -22,6 +22,7 @@ namespace FreshMarqueSnailsERP.Models
         [Display(Name = "Retail Type")]
         public string Type { get; set; }  // online or brick n mortar
 
-        public List<RetailSupply> RetailSupplies { get; set; }
+        //public List<RetailSupply> RetailSupplies { get; set; }
+        // ok funny
     }
 }

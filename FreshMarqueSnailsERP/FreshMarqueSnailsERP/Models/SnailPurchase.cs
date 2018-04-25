@@ -6,7 +6,7 @@ namespace FreshMarqueSnailsERP.Models
 {
     public class SnailPurchase
     {
-        public int SnailPurchaseId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [Display(Name = "Purchase Date")]
@@ -18,9 +18,9 @@ namespace FreshMarqueSnailsERP.Models
 
         public string Comment { get; set; }
 
-        [Display(Name = "Supplier")]
-        public int SupplierId { get; set; }
+        //[Display(Name = "Supplier")]
+        //public int SupplierId { get; set; }
 
-        public Supplier Supplier { get; set; }
+        //public Supplier Supplier { get; set; }
     }
 }
