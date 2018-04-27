@@ -6,7 +6,7 @@
 }
 
 <div class="mb-3">
-    <a asp-action="Create" class="btn bg-dark text-white float-right" id="create" onClick="create()">Create New</a>
+    <a asp-action="Create" class="btn bg-dark text-white float-right">Create New</a>
     @*<button data-toggle="modal" data-target="#exampleModal">Test</button>*@
     <h2>Index</h2>
 </div>
@@ -123,7 +123,7 @@
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Customer: @item.CustomerName</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -187,7 +187,82 @@
                 </div>
 
 
-                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                @*<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>*@
+                <a data-toggle="modal" data-target="#deleteModal-@item.Id" class="btn btn-sm btn-danger">Delete</a>
+
+                @* Delete order. Modal pops up for delete confirmation *@
+                <div class="modal fade" id="deleteModal-@item.Id" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">Delete: @item.CustomerName's Order</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.OrderDate)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.CustomerName)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.Contact)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.Location)</div>
+
+                                    <div class="w-100 d-none d-md-block"></div>
+
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.OrderDate)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.CustomerName)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.Contact)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.Location)</div>
+
+                                    <div class="w-100 d-none d-md-block mb-3"></div>
+
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.LargeSize)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.LargeSizeQuantity)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.MediumSize)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.MediumSizeQuantity)</div>
+
+                                    <div class="w-100 d-none d-md-block"></div>
+
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.LargeSize)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.LargeSizeQuantity)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.MediumSize)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.MediumSizeQuantity)</div>
+
+                                    <div class="w-100 d-none d-md-block mb-3"></div>
+
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.JumboSize)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.Cost)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.DeliveryStatus)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.Comment)</div>
+
+                                    <div class="w-100 d-none d-md-block"></div>
+
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.JumboSizeQuantity)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.Cost)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.DeliveryStatus)</div>
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.Comment)</div>
+
+                                    <div class="w-100 d-none d-md-block mb-3"></div>
+
+                                    <div class="col-3 col-sm-3">@Html.DisplayNameFor(model => model.PaymentMethod)</div>
+
+                                    <div class="w-100 d-none d-md-block"></div>
+
+                                    <div class="col-3 col-sm-3">@Html.DisplayFor(model => item.PaymentMethod)</div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                @*<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>*@
+                                @*<a asp-action="DeleteConfirmed" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>*@
+                                <form asp-action="DeleteConfirmed" asp-route-id="@item.Id">
+                                    <input type="hidden" asp-for="@item.Id" />
+                                    <input type="submit" value="Confirm" class="btn btn-danger" /> |
+                                </form>
+                                <button class="btn bg-dark text-white nav-link" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </td>
         </tr>
     }
